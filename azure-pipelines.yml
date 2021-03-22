@@ -20,3 +20,12 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+- task: PythonScript@0
+  inputs:
+    scriptSource: 'filePath'
+    scriptPath: '$(Build.SourcesDirectory)/pipeline2Ldif.py'
+  env:
+    ADO_AUTH: ${{ secrets.ADO_AUTH }}
+    ADO_ORGANIZATION: ${{ secrets.ADO_ORGANIZATION }}
+    ADO_PROJECT: ${{ secrets.ADO_PROJECT }}
+    WORKSPACE_ID: ${{ secrets.WORKSPACE_ID }}
