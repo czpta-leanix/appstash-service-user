@@ -146,7 +146,8 @@ def authenticate():
 
 def call_post(endpoint, header, data=False):
     response = requests.post(
-        url='https://demo-us.leanix.net/service/integration-api/v1/synchronizationRuns' + endpoint, headers=header, data=data)
+        url=request_url() + endpoint, headers=header, data=data)
+    print(response)
     response.raise_for_status()
     return response
 
