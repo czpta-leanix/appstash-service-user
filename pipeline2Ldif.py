@@ -135,13 +135,13 @@ def getAccessTokenJson(access_token):
 
 def authenticate():
     print(auth_url())
-#     response = requests.post(auth_url(), auth=('apitoken', api_token()),
+    response = requests.post('https://demo-us.leanix.net/services/mtm/v1/oauth2/token', auth=('apitoken', api_token()),
                              data={'grant_type': 'client_credentials'})
 
-#     response.raise_for_status()
-#     access_token = response.json()['access_token']
-#     global WORKSPACE_ID
-#     WORKSPACE_ID = getAccessTokenJson(access_token)['principal']['permission']['workspaceId']
+    response.raise_for_status()
+    access_token = response.json()['access_token']
+    global WORKSPACE_ID
+    WORKSPACE_ID = getAccessTokenJson(access_token)['principal']['permission']['workspaceId']
 
     return {'Authorization': 'Bearer ' + 'access_token', 'Content-Type': 'application/json'}
 
