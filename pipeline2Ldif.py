@@ -119,7 +119,7 @@ def pipeline2ldif():
         "connectorVersion": "1.0",
         "processingMode": "full",
         "lxVersion": "1.0.0",
-        "lxWorkspace": workspace,
+        "lxWorkspace": "workspaceId",
         "description": "Azure DevOps Connector",
         "content": pipeline_configs}
     print(json.dumps(ldif, indent=2))
